@@ -1,9 +1,11 @@
+// API key !!!
 const API_KEY = `764ba28a222043db8ca3c887ad99d303`;
 const loadData = () => {
   const url = `https://newsapi.org/v2/everything?q=tesla&from=2023-02-13&sortBy=publishedAt&apiKey=${API_KEY}`;
   fetch(url)
     .then((res) => res.json())
     .then((data) => displayData(data.articles));
+  // Start loading !!!
   toggleSpinner(true);
 };
 
@@ -29,9 +31,11 @@ const displayData = (articles) => {
   `;
     newsContainer.appendChild(creatDiv);
   });
+  // End loading !!!
   toggleSpinner(false);
 };
 
+// Loading spinner set-up
 const toggleSpinner = (isLoading) => {
   const loadSpinner = document.getElementById("load-spinner");
   if (isLoading == true) {
